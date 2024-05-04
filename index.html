@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+
+  <title>Frontend Mentor | Age calculator app</title>
+
+</head>
+<body>
+
+  <div class="main">
+    <dialog class="welcome-dialog">
+      <h1>Hello!</h1>
+      <h2>And welcome to the age calculator!</h2>
+      <p><span class="bold">Instructions:</span> Enter your birthdate into the form, and press <kbd>Enter</kbd> or click the arrow button to calculate your age, to the day.</p>
+      <p class="disclaimer"><span class="bold">Please note:</span> this form does not save any data, nor use any cookies or local storage</p>
+      <form method="dialog">
+        <button autofocus class="close-button">Got it!</button>
+      </form>
+    </dialog>
+
+    <div class='card'>
+      <div class="top-section">
+        <div
+            id="day-input-block"
+            class="input-block">
+          <label
+            for="day-input"
+            class="input-label">Day</label>
+          <input
+            id="day-input"
+            class="date-input"
+            placeholder="DD"
+            type="number"
+            max="31"
+            onchange="validateDay()" />
+          <div id="day-error" class="error-label"></div>
+        </div>
+        <div
+          id="month-input-block"
+          class="input-block">
+          <label
+            id="month-label"
+            for="month-input"
+            class="input-label">Month</label>
+          <input
+            id="month-input"
+            class="date-input"
+            placeholder="MM"
+            type="number"
+            max="12"
+            onchange="validateMonth()" />
+          <div id="month-error" class="error-label"></div>
+        </div>
+        <div
+          id="year-input-block"
+          class="input-block">
+          <label
+            id="year-label"
+            for="year-input"
+            class="input-label">Year</label>
+          <input
+            id="year-input"
+            class="date-input"
+            placeholder="YYYY"
+            type="number"
+            max="3000" />
+          <div id="year-error" class="error-label"></div>
+        </div>
+
+        <button
+          class="icon-circle"
+          onclick="calculateResults()">
+          <img src="assets/images/icon-arrow.svg" />
+        </button>
+      </div>
+
+      <div class="bottom-section">
+        <div class="results-block">
+          <div id="year-result" class="results">- -</div>
+          <div class="results-label">years</div>
+        </div>
+
+        <div class="results-block">
+          <div id="month-result" class="results">- -</div>
+          <div class="results-label">months</div>
+        </div>
+
+        <div class="results-block">
+          <div id="day-result" class="results">- -</div>
+          <div class="results-label">days</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://milespf.com">Miles Paquette-Falk</a>. <br><a href="#" class="show-button">Click here for instructions and information about this calculator</a>.
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

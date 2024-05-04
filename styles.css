@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: block;
+  position: relative;
+  height: 100vh;
+  background: hsl(0, 0%, 94%);
+  margin: 0;
+  padding: 0;
+  z-index: -1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: grid;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  z-index: -1;
+}
+
+::backdrop {
+  background: hsl(0, 0%, 8%);
+  opacity: 0.7;
+}
+
+:focus {
+  outline: 2px solid rgba(133, 77, 255, 0.5);
+  box-shadow: 0 0 15px rgba(113, 111, 111, 0.1);
+}
+
+.welcome-dialog {
+  width: 600px;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  border: none;
+  z-index: 10;
+  top: 50%;
+  translate: 0 -100%;
+  color: hsl(0, 0%, 8%);
+  box-shadow: 0 0 15px rgba(113, 111, 111, 0.1);
+  transition: opacity 0.5s;
+}
+.welcome-dialog[open] {
+  animation: fadeIn 0.5s ease-in-out;
+  opacity: 1;
+}
+.welcome-dialog:not([open]) {
+  opacity: 0;
+}
+.welcome-dialog h1 {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.welcome-dialog h2 {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: hsl(0, 1%, 44%);
+}
+.welcome-dialog p {
+  font-weight: 400;
+  font-size: 16px;
+  color: hsl(0, 1%, 44%);
+}
+.welcome-dialog p .bold {
+  font-weight: 700;
+}
+.welcome-dialog p.disclaimer {
+  font-size: 14px;
+  font-style: italic;
+}
+.welcome-dialog .close-button {
+  display: block;
+  position: relative;
+  background: hsl(259, 100%, 65%);
+  color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem 3rem;
+  margin: 2rem auto 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+}
+.welcome-dialog .close-button:hover {
+  opacity: 0.8;
+  transition: all 0.2s ease-in-out;
+}
+
+button {
+  cursor: pointer;
+}
+
+kbd {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  background: hsl(0, 0%, 86%);
+}
+
+.card {
+  display: block;
+  position: relative;
+  width: 850px;
+  max-width: 100%;
+  background: hsl(0, 0%, 100%);
+  padding: 3.5rem;
+  border-radius: 1.5rem 1.5rem 12rem 1.5rem;
+}
+.card .top-section {
+  display: flex;
+  position: relative;
+  width: 100%;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid hsl(0, 0%, 86%);
+}
+.card .input-block {
+  display: inline-block;
+}
+.card .input-block:not(:first-of-type) {
+  margin-left: 2rem;
+}
+.card .input-block.error .input-label {
+  color: hsl(0, 100%, 67%);
+}
+.card .input-block.error .date-input {
+  border-color: hsl(0, 100%, 67%);
+}
+.card .input-label {
+  display: block;
+  position: relative;
+  color: hsl(0, 1%, 44%);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 4px;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+}
+.card .input-label.error {
+  color: hsl(0, 100%, 67%);
+}
+.card .date-input {
+  font-size: 32px;
+  width: 10rem;
+  color: hsl(0, 0%, 8%);
+  border: 1px solid hsl(0, 0%, 86%);
+  border-radius: 0.5rem;
+  padding: 0.75rem 0.5rem 0.75rem 1.5rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  line-height: 1;
+}
+.card .date-input::placeholder {
+  color: hsl(0, 1%, 44%);
+}
+.card .date-input:focus {
+  border-color: hsl(259, 100%, 65%);
+  outline: none;
+}
+.card .date-input.error {
+  border-color: hsl(0, 100%, 67%);
+}
+.card .error-label {
+  display: block;
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  color: hsl(0, 100%, 67%);
+  margin-top: 0.5rem;
+}
+.card .icon-circle {
+  display: grid;
+  position: absolute;
+  justify-content: center;
+  align-content: center;
+  background: hsl(259, 100%, 65%);
+  padding: 1.5rem;
+  border-radius: 200px;
+  right: 0;
+  bottom: 0;
+  translate: 0 50%;
+  border: none;
+  outline: none;
+}
+.card .icon-circle:hover {
+  opacity: 0.8;
+}
+.card .icon-circle:active {
+  background: hsl(0, 0%, 8%);
+  opacity: 1;
+}
+.card .bottom-section {
+  padding: 3rem 0 1rem;
+}
+.card .results-block {
+  display: block;
+  padding: 0;
+}
+.card .results,
+.card .results-label {
+  display: inline-block;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 100px;
+  line-height: 1.1;
+}
+.card .results {
+  color: hsl(259, 100%, 65%);
+}
+.card .results-label {
+  color: hsl(0, 0%, 8%);
+  margin-left: 10px;
+}
+
+.attribution {
+  display: inline;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(259, 100%, 65%);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+.attribution a:hover {
+  text-decoration: underline;
+  transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    width: calc(100% - 4rem);
+    max-width: 100%;
+    margin: auto 2rem;
+    padding: 2rem;
+    border-radius: 1.5rem 1.5rem 8rem 1.5rem;
+  }
+  .card .top-section {
+    justify-content: space-between;
+    padding: 2rem 0 5rem;
+  }
+  .card .top-section .input-block:not(:first-of-type) {
+    margin-left: 1rem;
+  }
+  .card .top-section .date-input {
+    font-size: 24px;
+    margin: 0;
+    max-width: 7rem;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+  }
+  .card .top-section .icon-circle {
+    right: 50%;
+    translate: 50% 50%;
+  }
+  .card .top-section .icon-circle img {
+    width: 2rem;
+  }
+  .card .bottom-section {
+    padding: 5rem 0 1rem;
+  }
+  .card .results,
+  .card .results-label {
+    font-size: 60px;
+    line-height: 1.1;
+  }
+}
+@keyframes fadeIn {
+  opacity: 0, 0%;
+  opacity-opacity: 0;
+  opacity-translate: 0 50%;
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

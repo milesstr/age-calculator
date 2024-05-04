@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+$purple: hsl(259, 100%, 65%);
+$light-red: hsl(0, 100%, 67%);
+
+$white: hsl(0, 0%, 100%);
+$off-white: hsl(0, 0%, 94%);
+$light-gray: hsl(0, 0%, 86%);
+$smokey-gray: hsl(0, 1%, 44%);
+$off-black: hsl(0, 0%, 8%);
+
+$main-font: "Poppins", sans-serif;
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: block;
+	position: relative;
+	height: 100vh;
+	background: $off-white;
+	margin: 0;
+	padding: 0;
+	z-index: -1
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+.main {
+	display: grid;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+	align-content: center;
+	font-family: $main-font;
+	overflow: hidden;
+	z-index: -1;
+}
+
+::backdrop {
+	background: $off-black;
+	opacity: 0.7;
+}
+
+:focus {
+	outline: 2px solid rgba($purple, 0.5);
+	box-shadow: 0 0 15px rgba($smokey-gray, 0.1);
+}
+
+.welcome-dialog {
+	width: 600px;
+	padding: 3rem;
+	border-radius: 1.5rem;
+	border: none;
+	z-index: 10;
+	top: 50%;
+	translate: 0 -100%;
+	color: $off-black;
+	box-shadow: 0 0 15px rgba($smokey-gray, 0.1);
+	transition: opacity 0.5s;
+
+	&[open] {
+		animation: fadeIn 0.5s ease-in-out;
+		opacity: 1;
+	}
+
+	&:not([open]) {
+		opacity: 0;
+	}
+
+	h1 {
+		font-size: 32px;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	h2 {
+		font-size: 20px;
+		font-weight: 700;
+		text-align: center;
+		margin-bottom: 2rem;
+		color: $smokey-gray;
+	}
+
+	p {
+		font-weight: 400;
+		font-size: 16px;
+		color: $smokey-gray;
+
+		.bold {
+			font-weight: 700;
+		}
+
+		&.disclaimer {
+			font-size: 14px;
+			font-style: italic;
+		}
+	}
+
+	.close-button {
+		display: block;
+		position: relative;
+		background: $purple;
+		color: $white;
+		border: none;
+		border-radius: 1rem;
+		padding: 1rem 3rem;
+		margin: 2rem auto 1rem;
+		font-family: $main-font;
+		font-weight: 400;
+		font-size: 20px;
+		letter-spacing: 1px;
+		transition: all 0.2s ease-in-out;
+
+		&:hover {
+			opacity: 0.8;
+			transition: all 0.2s ease-in-out;
+		}
+	}
+}
+
+button {
+	cursor: pointer;
+}
+
+kbd {
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.5rem;
+	background: $light-gray;
+}
+
+.card {
+	display: block;
+	position: relative;
+	width: 850px;
+	max-width: 100%;
+	background: $white;
+	padding: 3.5rem;
+	border-radius: 1.5rem 1.5rem 12rem 1.5rem;
+
+	.top-section {
+		display: flex;
+		position: relative;
+		width: 100%;
+		padding-bottom: 3rem;
+		border-bottom: 1px solid $light-gray;
+	}
+
+	.input-block {
+		display: inline-block;
+
+		&:not(:first-of-type) {
+			margin-left: 2rem;
+		}
+
+		&.error {
+			.input-label {
+				color: $light-red;
+			}
+
+			.date-input {
+				border-color: $light-red;
+			}
+		}
+	}
+
+	.input-label {
+		display: block;
+		position: relative;
+		color: $smokey-gray;
+		text-transform: uppercase;
+		font-weight: 700;
+		letter-spacing: 4px;
+		font-size: 14px;
+		margin-bottom: 0.5rem;
+
+		&.error {
+			color: $light-red;
+		}
+	}
+
+	.date-input {
+		font-size: 32px;
+		width: 10rem;
+		color: $off-black;
+		border: 1px solid $light-gray;
+		border-radius: 0.5rem;
+		padding: 0.75rem .5rem 0.75rem 1.5rem;
+		font-weight: 700;
+		font-family: $main-font;
+		line-height: 1;
+
+		&::placeholder {
+			color: $smokey-gray;
+		}
+
+		&:focus {
+			border-color: $purple;
+			outline: none;
+		}
+
+		&.error {
+			border-color: $light-red;
+		}
+	}
+
+	.error-label {
+		display: block;
+		position: relative;
+		font-size: 14px;
+		font-weight: 400;
+		font-style: italic;
+		color: $light-red;
+		margin-top: 0.5rem;
+	}
+
+	.icon-circle {
+		display: grid;
+		position: absolute;
+		justify-content: center;
+		align-content: center;
+		background: $purple;
+		padding: 1.5rem;
+		border-radius: 200px;
+		right: 0;
+		bottom: 0;
+		translate: 0 50%;
+		border: none;
+		outline: none;
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		&:active {
+			background: $off-black;
+			opacity: 1;
+		}
+;	}
+
+	.bottom-section {
+		padding: 3rem 0 1rem;
+	}
+
+	.results-block {
+		display: block;
+		padding: 0;
+	}
+
+	.results,
+	.results-label {
+		display: inline-block;
+		font-weight: 800;
+		font-style: italic;
+		font-size: 100px;
+		line-height: 1.1;
+	}
+
+	.results {
+		color: $purple;
+	}
+
+	.results-label {
+		color: $off-black;
+		margin-left: 10px;
+	}
+}
+
+
+.attribution {
+	display: inline;
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	translate: -50% 0;
+	font-size: 11px; text-align: center;
+
+	a {
+		color: $purple;
+		text-decoration: none;
+		transition: all 0.2s ease-in-out;
+
+		&:hover {
+			text-decoration: underline;
+			transition: all 0.2s ease-in-out;
+		}
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.card {
+		width: calc(100% - 4rem);
+		max-width: 100%;
+		margin: auto 2rem;
+		padding: 2rem;
+		border-radius: 1.5rem 1.5rem 8rem 1.5rem;
+
+		.top-section {
+			justify-content: space-between;
+			padding: 2rem 0 5rem;
+
+			.input-block:not(:first-of-type) {
+				margin-left: 1rem;
+			}
+
+			.date-input {
+				font-size: 24px;
+				margin: 0;
+				max-width: 7rem;
+				padding: 0.5rem 0.5rem 0.5rem 1rem;
+			}
+
+			.icon-circle {
+				right: 50%;
+				translate: 50% 50%;
+
+				img {
+					width: 2rem;
+				}
+			}
+		}
+
+		.bottom-section {
+			padding: 5rem 0 1rem;
+		}
+
+		.results,
+		.results-label {
+			font-size: 60px;
+			line-height: 1.1;
+		}
+	}
+}
+
+@keyframes fadeIn {
+  opacity: 0,
+  0% {
+	opacity: 0;
+	translate: 0 50%;
+  }
+  100% {
+	opacity: 1;
+	translate: 0 0;
+  }
+}
